@@ -5,9 +5,12 @@ ActiveAdmin.register_page "Settings" do
 
   controller do
   	def index
-  		params[:settings].each do |k,v|
-  			settings_model[k] = v
+  		if params[:settings]
+	  		params[:settings].each do |k,v|
+	  			settings_model[k] = v
+	  		end 
   		end
+  		super
   		# Settings.email = params[:settings][:email] if params[:settings]
   	end
   	private 
