@@ -1,5 +1,6 @@
 module ActiveadminSettingsCached
   class SettingsController < ApplicationController
+
     def update
       settings_params.each_pair do |name, value|
         settings_model[name] = value
@@ -12,8 +13,8 @@ module ActiveadminSettingsCached
     private
 
     def settings_params
-      params[:settings]
-      #params.require(:settings).permit(settings_model.defaults.keys)
+      # params[:settings]
+      params.require(:settings).permit(settings_model.defaults.keys)
     end
 
     def settings_model
